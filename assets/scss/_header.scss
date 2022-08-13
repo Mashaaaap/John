@@ -1,0 +1,141 @@
+// .heqader {
+//     #toggle {
+//         display: none;
+//     }
+
+//     #toggle:checked ~ nav {
+//         display: block;
+//     }
+
+//     .toggle_btn 
+// }
+
+.header {
+    margin-bottom: 20px;
+    margin-top: 20px;
+   
+    .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+    .menu-list {
+        font-family: $font;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 29px;
+        text-align: right;
+        }
+    }
+}
+
+header {
+    padding-right: 18px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#toggle {
+    display: none;
+}
+
+#toggle:checked ~ nav {
+    display: block;
+}
+
+.toggle_btn span {
+            display: block;
+            height: 2px;
+            width: 30px;
+            background: #21243D;
+            position: relative;
+            transition: transform .4s ;
+    
+            &::before {
+                    content: '';
+                    display: block;
+                    height: 2px;
+                    width: 30px;
+                    background: #21243D;
+                    position: absolute;
+                    top: -8px;
+                    transition: transform .4s top .4s;
+                }
+    
+            &::after {
+                    content: '';
+                    display: block;
+                    height: 2px;
+                    width: 30px;
+                    background: #21243D;
+                    position: absolute;
+                    top: 8px;
+                    transition: top .4s ;
+            }
+        }
+
+ #toggle:checked ~ .toggle_btn span {
+   transform: rotate(45deg);
+   z-index: 10;
+
+    &::after {
+        content: '';
+        top: 0;
+        z-index: 10;
+    }
+
+    &::before {
+         content: '';
+         transform: rotate(-90deg);
+         top: 0;
+         z-index: 10;
+    }
+}
+
+.menu_list {
+      &-link {
+      list-style: none;
+      color: #000;
+      align-items: center;
+      text-decoration: none;  
+      display: block;
+      text-align: center;
+      font-size: 16px;
+      margin: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        width: 100%;
+        background-color: #EDF7FA;
+        z-index: 9;
+    }
+    .menu_list-link {
+        text-decoration: none;
+        list-style: none;
+        color: #21243D;
+
+    }
+
+    
+}
+
+@media (min-width: 768px) {
+    .toggle_btn {
+        display: none;
+    }
+    .menu_list {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        font-weight: 500;
+        font-size: 20px;
+        font-family: $font;
+        padding: 0;
+    }
+}
